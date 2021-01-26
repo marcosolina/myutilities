@@ -1,6 +1,6 @@
 package com.marco.afterhandbrake;
 
-import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import org.apache.log4j.Logger;
 
@@ -23,8 +23,8 @@ public class App {
 			String handBrakVolder = MarcoUtils.getProperty("com.marco.afterhandbrake.destFolder");
 			
 			//TODO create factory class to de-couple the instantiacion
-			ProcessVideoFolders service = new AfterHandBrake(Path.of(exifToolPath));
-			service.exifDataFromSourceFileToMp4Destiantion(Path.of(originalFolder), Path.of(handBrakVolder));
+			ProcessVideoFolders service = new AfterHandBrake(Paths.get(exifToolPath));
+			service.exifDataFromSourceFileToMp4Destiantion(Paths.get(originalFolder), Paths.get(handBrakVolder));
 			
 			
 		} catch (MarcoException e) {
