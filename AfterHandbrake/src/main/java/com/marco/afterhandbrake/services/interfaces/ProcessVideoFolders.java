@@ -14,5 +14,7 @@ public interface ProcessVideoFolders {
 	 * @param destFolder
 	 */
 	public void exifDataFromSourceFileToMp4Destiantion(Path sourceFolder, Path destFolder);
+	
+	public void setDatesFromFileName(Path folder);
 
 }

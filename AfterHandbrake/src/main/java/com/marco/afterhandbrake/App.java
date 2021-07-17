@@ -20,11 +20,20 @@ public class App {
 		try {
 			String exifToolPath = MarcoUtils.getProperty("com.marco.exiftool.full.path");
 			String originalFolder = MarcoUtils.getProperty("com.marco.afterhandbrake.sourceFolder");
-			String handBrakVolder = MarcoUtils.getProperty("com.marco.afterhandbrake.destFolder");
+			String handBrakFolder = MarcoUtils.getProperty("com.marco.afterhandbrake.destFolder");
+			String modality = MarcoUtils.getProperty("com.marco.afterhandbrake.modality");
 			
 			//TODO create factory class to de-couple the instantiacion
 			ProcessVideoFolders service = new AfterHandBrake(Paths.get(exifToolPath));
-			service.exifDataFromSourceFileToMp4Destiantion(Paths.get(originalFolder), Paths.get(handBrakVolder));
+			
+			switch (modality) {
+			case "SET_FROM_FILE_NAME":
+				service.setDatesFromFileName(Paths.get(handBrakFolder));
+				break;
+			default:
+				service.exifDataFromSourceFileToMp4Destiantion(Paths.get(originalFolder), Paths.get(handBrakFolder));
+				break;
+			}
 			
 			
 		} catch (MarcoException e) {
