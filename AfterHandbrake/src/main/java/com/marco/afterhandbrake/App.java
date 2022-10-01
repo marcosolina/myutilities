@@ -30,6 +30,9 @@ public class App {
 			case "SET_FROM_FILE_NAME":
 				service.setDatesFromFileName(Paths.get(handBrakFolder));
 				break;
+			case "SET_FROM_FILE_CREATED_DATE":
+                service.setDatesFromFileCreateDate(Paths.get(originalFolder));
+                break;
 			default:
 				service.exifDataFromSourceFileToMp4Destiantion(Paths.get(originalFolder), Paths.get(handBrakFolder));
 				break;
